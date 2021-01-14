@@ -1,0 +1,15 @@
+<Directory "/usr/local/nagios/sbin">
+SSLRequireSSL
+Options ExecCGI
+AllowOverride None
+Order allow,deny
+Allow from all
+AuthBasicProvider ldap
+AuthName "Nagios Access"
+AuthType Basic
+AuthzLDAPAuthoritative Off
+AuthLDAPBindDN "CN=xxx,CN=Users,DC=xxx,DC=xx"
+AuthLDAPBindPassword Abcd1234
+AuthLDAPURL "ldap://x.x.x.x:389/OU=xxxusers,DC=xxx,DC=xx?sAMAccountName?sub"
+Require valid-user
+</Directory>
